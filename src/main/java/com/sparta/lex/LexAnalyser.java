@@ -47,7 +47,7 @@ public class LexAnalyser {
         str.append(input);
         int result = 1;
 
-        for(String word: s){
+        for (int i = 0; i < s.length; i++) {
             result++;
         }
 
@@ -69,17 +69,23 @@ public class LexAnalyser {
 
     public char mostCommonChar(String input){
         HashMap<Character, Integer> charCounts = new HashMap<>();
-        char[] charArray = input.toCharArray();
+        char[] charArray = input.toLowerCase().toCharArray();
+
 
         // Count all chars in input string.
         for (char c : charArray) {
-            if (!Character.isLetter(c)) break;
+            if (!Character.isLetter(c)) continue;
             if (charCounts.containsKey(c)) {
                 charCounts.put(c, charCounts.get(c) + 1);
             } else {
                 charCounts.put(c, 1);
             }
         }
+
+        for (Map.Entry<Character, Integer> entry : charCounts.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+        System.out.println("\n");
 
         // Find the highest frequency character.
         int highestFreq = 0;
