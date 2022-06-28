@@ -15,9 +15,9 @@ public class Main {
     public static void main(String[] args) {
         LexAnalyser lexAnalyser = new LexAnalyser(ReadFile.getData("C:\\Dev\\Sparta Global\\Analyser\\src\\main\\java\\com\\sparta\\lex\\shortDoc.txt"));
         System.out.println(lexAnalyser.mostCommonChar("The aliens are coming"));
-        mostCommon("HELLO HOW GOES IT");
+        mostCommon("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     }
-
+    
     public static void mostCommon(String input) {
         List<String> words = new ArrayList<>(Arrays.asList(input.split(" ")));
         Map<Character, Long> charFrequency = words
